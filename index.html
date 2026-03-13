@@ -809,48 +809,254 @@
 
     .route-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
       gap: 20px;
+      align-items: stretch;
     }
 
     .route-map {
-      padding: 24px;
+      padding: 28px 24px;
       border-radius: var(--radius-lg);
       border: 1px solid var(--line);
       background:
-        radial-gradient(circle at 20% 20%, rgba(83, 186, 164, 0.15), transparent 25%),
-        radial-gradient(circle at 72% 30%, rgba(216, 181, 109, 0.14), transparent 25%),
-        rgba(255, 255, 255, 0.03);
-      min-height: 340px;
+        radial-gradient(circle at 18% 18%, rgba(83, 186, 164, 0.10), transparent 26%),
+        radial-gradient(circle at 80% 22%, rgba(216, 181, 109, 0.08), transparent 24%),
+        linear-gradient(180deg, rgba(8, 21, 31, 0.92), rgba(7, 17, 24, 0.88));
+      min-height: 468px;
       position: relative;
       overflow: hidden;
+      isolation: isolate;
     }
 
-    .map-node {
+    .route-map::after {
+      content: "";
       position: absolute;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--line-strong);
-      background: rgba(7, 17, 24, 0.82);
-      color: var(--text);
-      font-size: 0.9rem;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+      inset: 0;
+      background: radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.03), transparent 40%);
+      pointer-events: none;
+      z-index: 0;
     }
 
-    .map-node strong {
-      color: var(--gold);
-      display: block;
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
+    .route-visual {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
     }
 
-    .route-line {
+    /* ── Top convergence row ── */
+    .route-row { display: grid; gap: 14px; width: 100%; }
+    .route-row--top {
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+    }
+
+    /* ── Card base ── */
+    .route-card {
+      position: relative;
+      padding: 16px 20px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(12, 26, 38, 0.92), rgba(7, 17, 24, 0.8));
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .route-card--source {
+      background: linear-gradient(145deg, rgba(83, 186, 164, 0.16), rgba(83, 186, 164, 0.03));
+      border-color: rgba(83, 186, 164, 0.28);
+    }
+    .route-card--source .route-icon { color: var(--jade); }
+
+    .route-card--pressure {
+      background: linear-gradient(145deg, rgba(201, 107, 107, 0.16), rgba(201, 107, 107, 0.03));
+      border-color: rgba(201, 107, 107, 0.26);
+    }
+    .route-card--pressure .route-icon { color: var(--rose); }
+
+    /* ── Connector: vertical line with arrow ── */
+    .route-connector {
+      width: 2px;
+      height: 32px;
+      position: relative;
+      flex-shrink: 0;
+      background: linear-gradient(180deg, rgba(124, 200, 210, 0.12), rgba(124, 200, 210, 0.5));
+    }
+    .route-connector::after {
+      content: "";
       position: absolute;
-      height: 2px;
-      background: linear-gradient(90deg, rgba(83, 186, 164, 0.05), rgba(83, 186, 164, 0.75), rgba(216, 181, 109, 0.65));
-      transform-origin: left center;
-      box-shadow: 0 0 18px rgba(83, 186, 164, 0.35);
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0; height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid rgba(124, 200, 210, 0.5);
+    }
+    .route-connector--gold {
+      background: linear-gradient(180deg, rgba(216, 181, 109, 0.12), rgba(216, 181, 109, 0.5));
+    }
+    .route-connector--gold::after {
+      border-top-color: rgba(216, 181, 109, 0.5);
+    }
+    .route-connector--jade {
+      background: linear-gradient(180deg, rgba(83, 186, 164, 0.12), rgba(83, 186, 164, 0.5));
+    }
+    .route-connector--jade::after {
+      border-top-color: rgba(83, 186, 164, 0.5);
+    }
+
+    /* ── Merge indicator (two sources -> one hub) ── */
+    .route-merge {
+      position: relative;
+      width: 60%;
+      height: 28px;
+      flex-shrink: 0;
+    }
+    .route-merge::before,
+    .route-merge::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      border-bottom: 2px solid rgba(124, 200, 210, 0.32);
+    }
+    .route-merge::before {
+      left: 0;
+      border-right: none;
+      border-radius: 0 0 0 18px;
+      border-left: 2px solid rgba(83, 186, 164, 0.32);
+    }
+    .route-merge::after {
+      right: 0;
+      border-left: none;
+      border-radius: 0 0 18px 0;
+      border-right: 2px solid rgba(201, 107, 107, 0.32);
+    }
+
+    /* ── Hub card (ASEAN) ── */
+    .route-card--hub {
+      width: min(88%, 380px);
+      text-align: center;
+      background: linear-gradient(145deg, rgba(216, 181, 109, 0.15), rgba(216, 181, 109, 0.03));
+      border-color: rgba(216, 181, 109, 0.3);
+      box-shadow: 0 0 40px rgba(216, 181, 109, 0.06), 0 8px 24px rgba(0,0,0,0.22);
+    }
+    .route-card--hub .route-icon { color: var(--gold); }
+
+    /* ── Split indicator (one hub -> two branches) ── */
+    .route-split {
+      position: relative;
+      width: 54%;
+      height: 28px;
+      flex-shrink: 0;
+    }
+    .route-split::before,
+    .route-split::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 50%;
+      height: 100%;
+      border-top: 2px solid rgba(124, 200, 210, 0.32);
+    }
+    .route-split::before {
+      left: 0;
+      border-right: none;
+      border-radius: 18px 0 0 0;
+      border-left: 2px solid rgba(124, 200, 210, 0.32);
+    }
+    .route-split::after {
+      right: 0;
+      border-left: none;
+      border-radius: 0 18px 0 0;
+      border-right: 2px solid rgba(124, 200, 210, 0.32);
+    }
+    /* center stem from hub to split */
+    .route-split-stem {
+      width: 2px;
+      height: 18px;
+      background: linear-gradient(180deg, rgba(216, 181, 109, 0.4), rgba(124, 200, 210, 0.4));
+      flex-shrink: 0;
+    }
+
+    /* ── Branches row ── */
+    .route-branches {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      width: 100%;
+    }
+
+    .route-branch {
+      min-height: 88px;
+    }
+    .route-branch .route-icon { color: var(--cyan); }
+
+    /* ── Result card ── */
+    .route-card--result {
+      width: min(88%, 400px);
+      text-align: center;
+      background: linear-gradient(145deg, rgba(83, 186, 164, 0.15), rgba(83, 186, 164, 0.03));
+      border-color: rgba(83, 186, 164, 0.28);
+      box-shadow: 0 0 40px rgba(83, 186, 164, 0.06), 0 8px 24px rgba(0,0,0,0.22);
+    }
+    .route-card--result .route-icon { color: var(--jade); }
+
+    /* ── Result merge connector ── */
+    .route-result-merge {
+      position: relative;
+      width: 54%;
+      height: 24px;
+      flex-shrink: 0;
+    }
+    .route-result-merge::before,
+    .route-result-merge::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      border-bottom: 2px solid rgba(83, 186, 164, 0.32);
+    }
+    .route-result-merge::before {
+      left: 0;
+      border-right: none;
+      border-radius: 0 0 0 18px;
+      border-left: 2px solid rgba(83, 186, 164, 0.28);
+    }
+    .route-result-merge::after {
+      right: 0;
+      border-left: none;
+      border-radius: 0 0 18px 0;
+      border-right: 2px solid rgba(83, 186, 164, 0.28);
+    }
+
+    /* ── Card internals ── */
+    .route-icon {
+      font-size: 1.2rem;
+      line-height: 1;
+      opacity: 0.85;
+    }
+
+    .route-card h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .route-card .route-desc {
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.45;
     }
 
     .pillars {
@@ -1032,8 +1238,43 @@
         grid-template-columns: 1fr;
       }
 
+      .route-grid {
+        grid-template-columns: 1fr;
+      }
+
       .route-map {
-        min-height: 420px;
+        min-height: 500px;
+      }
+
+      .route-row--top,
+      .route-branches {
+        grid-template-columns: 1fr;
+      }
+
+      .route-branches {
+        padding-top: 0;
+        gap: 10px;
+      }
+
+      .route-card,
+      .route-card--hub,
+      .route-card--result {
+        width: 100%;
+      }
+
+      .route-merge,
+      .route-split,
+      .route-split-stem,
+      .route-result-merge {
+        display: none;
+      }
+
+      .route-connector {
+        height: 20px;
+      }
+
+      .route-branch {
+        min-height: auto;
       }
     }
 
@@ -1207,8 +1448,8 @@
         <div class="slide-head">
           <div>
             <span class="eyebrow">战略判断</span>
-            <h2 class=”title”>国家优先序已然切换</h2>
-            <p class=”subtitle”>两会最核心的变化：高速增长不再是唯一政治目标，韧性、安全、技术主权、财政缓冲、社会稳定被提至同等甚至更高位置。</p>
+            <h2 class="title">国家优先序已然切换</h2>
+            <p class="subtitle">两会最核心的变化：高速增长不再是唯一政治目标，韧性、安全、技术主权、财政缓冲、社会稳定被提至同等甚至更高位置。</p>
           </div>
           <div class="slide-no">SLIDE / 02</div>
         </div>
@@ -1270,8 +1511,8 @@
         <div class="slide-head">
           <div>
             <span class="eyebrow">宏观财政</span>
-            <h2 class=”title”>财政转向：缓冲优先，刺激靠后</h2>
-            <p class=”subtitle”>2026年核心财政逻辑：先化解系统性风险，再为国家战略提供长期资金，而非大规模刺激居民消费。</p>
+            <h2 class="title">财政转向：缓冲优先，刺激靠后</h2>
+            <p class="subtitle">2026年核心财政逻辑：先化解系统性风险，再为国家战略提供长期资金，而非大规模刺激居民消费。</p>
           </div>
           <div class="slide-no">SLIDE / 03</div>
         </div>
@@ -1343,8 +1584,8 @@
         <div class="slide-head">
           <div>
             <span class="eyebrow">十五五布局</span>
-            <h2 class=”title”>109项重大工程重塑资本版图</h2>
-            <p class=”subtitle”>”十五五”不止是发展规划，更是国家韧性架构。资本、补贴、监管与行政资源围绕六大领域重配，硬科技与战略安全居于核心。</p>
+            <h2 class="title">109项重大工程重塑资本版图</h2>
+            <p class="subtitle">”十五五”不止是发展规划，更是国家韧性架构。资本、补贴、监管与行政资源围绕六大领域重配，硬科技与战略安全居于核心。</p>
           </div>
           <div class="slide-no">SLIDE / 04</div>
         </div>
@@ -1424,8 +1665,8 @@
         <div class="slide-head">
           <div>
             <span class="eyebrow">产业整合</span>
-            <h2 class=”title”>”反内卷”：从口号到国家主导的行业出清</h2>
-            <p class=”subtitle”>2026年最具冲击力的产业转向。核心不是反竞争，而是终结低利润、低效率、靠补贴与价格战堆砌的恶性扩产。</p>
+            <h2 class="title">”反内卷”：从口号到国家主导的行业出清</h2>
+            <p class="subtitle">2026年最具冲击力的产业转向。核心不是反竞争，而是终结低利润、低效率、靠补贴与价格战堆砌的恶性扩产。</p>
           </div>
           <div class="slide-no">SLIDE / 05</div>
         </div>
@@ -1484,8 +1725,8 @@
         <div class="slide-head">
           <div>
             <span class="eyebrow">地产与债务</span>
-            <h2 class=”title”>地产：告别复苏幻想，转向有序出清</h2>
-            <p class=”subtitle”>政策取向已明：不再试图恢复高杠杆繁荣，转向”控制爆破”，核心是防止系统性银行危机与无序违约扩散。</p>
+            <h2 class="title">地产：告别复苏幻想，转向有序出清</h2>
+            <p class="subtitle">政策取向已明：不再试图恢复高杠杆繁荣，转向”控制爆破”，核心是防止系统性银行危机与无序违约扩散。</p>
           </div>
           <div class="slide-no">SLIDE / 06</div>
         </div>
@@ -1595,38 +1836,57 @@
         <div class="slide-head">
           <div>
             <span class="eyebrow">外部布局与权力</span>
-            <h2 class=”title”>外拓生态、内收权力：双线并进</h2>
-            <p class=”subtitle”>两条线索并行：供应链与金融架构向东南亚外溢以绕开围堵，军队系统持续清洗与忠诚重组以压实内控。</p>
+            <h2 class="title">外拓生态、内收权力：双线并进</h2>
+            <p class="subtitle">两条线索并行：供应链与金融架构向东南亚外溢以绕开围堵，军队系统持续清洗与忠诚重组以压实内控。</p>
           </div>
           <div class="slide-no">SLIDE / 08</div>
         </div>
 
         <div class="route-grid">
           <div class="route-map">
-            <div class="map-node" style="left:10%;top:14%;">
-              <strong>CHINA</strong>
-              大陆制造与资本
+            <div class="route-visual">
+              <div class="route-row route-row--top">
+                <div class="route-card route-card--source">
+
+                  <h3>大陆产能与资本</h3>
+                  <p class="route-desc">电动车、锂电、光伏产能溢出，寻求海外落地</p>
+                </div>
+                <div class="route-card route-card--pressure">
+                  <h3>西方围堵加压</h3>
+                  <p class="route-desc">关税壁垒、技术管制、供应链脱钩</p>
+                </div>
+              </div>
+
+              <div class="route-merge"></div>
+              <div class="route-connector"></div>
+
+              <div class="route-card route-card--hub">
+                <h3>东盟成为战略腹地</h3>
+                <p class="route-desc">承接双向压力，成为关键中转节点</p>
+              </div>
+
+              <div class="route-split-stem"></div>
+              <div class="route-split"></div>
+
+              <div class="route-branches">
+                <div class="route-card route-branch">
+                  <h3>供应链外移</h3>
+                  <p class="route-desc">部分制造环节转至越南、泰国、印尼</p>
+                </div>
+                <div class="route-card route-branch">
+                  <h3>金融网络外移</h3>
+                  <p class="route-desc">人民币结算、数字货币试点拓展</p>
+                </div>
+              </div>
+
+              <div class="route-result-merge"></div>
+              <div class="route-connector route-connector--jade"></div>
+
+              <div class="route-card route-card--result">
+                <h3>形成平行区域经济圈</h3>
+                <p class="route-desc">绕开西方体系，构建自主可控的区域经济网络</p>
+              </div>
             </div>
-            <div class="map-node" style="left:58%;top:18%;">
-              <strong>VIETNAM</strong>
-              制造转移
-            </div>
-            <div class="map-node" style="left:68%;top:42%;">
-              <strong>THAILAND</strong>
-              汽车与组装
-            </div>
-            <div class="map-node" style="left:50%;top:64%;">
-              <strong>MALAYSIA</strong>
-              电子与中转
-            </div>
-            <div class="map-node" style="left:24%;top:70%;">
-              <strong>INDONESIA</strong>
-              资源与电池链
-            </div>
-            <div class="route-line" style="left:22%;top:25%;width:220px;transform:rotate(-7deg);"></div>
-            <div class="route-line" style="left:21%;top:30%;width:270px;transform:rotate(16deg);"></div>
-            <div class="route-line" style="left:21%;top:34%;width:240px;transform:rotate(32deg);"></div>
-            <div class="route-line" style="left:20%;top:38%;width:190px;transform:rotate(46deg);"></div>
           </div>
 
           <div class="pillars">
