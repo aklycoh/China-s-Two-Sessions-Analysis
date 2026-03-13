@@ -1,0 +1,1926 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026年两会精神深度解读</title>
+  <style>
+    :root {
+      --bg: #071118;
+      --panel: rgba(10, 24, 33, 0.78);
+      --line: rgba(203, 231, 235, 0.12);
+      --line-strong: rgba(203, 231, 235, 0.24);
+      --text: #edf5f4;
+      --muted: #afc2c8;
+      --gold: #d8b56d;
+      --jade: #53baa4;
+      --cyan: #7cc8d2;
+      --rose: #c96b6b;
+      --rose-dim: rgba(201, 107, 107, 0.12);
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --sans: "Segoe UI Variable Display", "Noto Sans SC", "PingFang SC", "Microsoft YaHei UI", sans-serif;
+      --serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", serif;
+      --mono: "Bahnschrift", "DIN Alternate", "Segoe UI Mono", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(83, 186, 164, 0.14), transparent 28%),
+        radial-gradient(circle at 80% 12%, rgba(216, 181, 109, 0.18), transparent 24%),
+        radial-gradient(circle at 72% 72%, rgba(124, 200, 210, 0.10), transparent 28%),
+        linear-gradient(145deg, #071118 0%, #08131c 35%, #091721 68%, #071118 100%);
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    body::before {
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(circle at center, black 20%, transparent 80%);
+      opacity: 0.3;
+    }
+
+    body::after {
+      background:
+        conic-gradient(from 180deg at 50% 50%, rgba(216, 181, 109, 0.04), transparent 30%, rgba(83, 186, 164, 0.05), transparent 56%, rgba(124, 200, 210, 0.04), transparent 82%, rgba(216, 181, 109, 0.04));
+      filter: blur(100px);
+      opacity: 0.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 100%;
+      z-index: 60;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .progress-bar span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--jade), var(--gold));
+      box-shadow: 0 0 20px rgba(216, 181, 109, 0.45);
+      transition: width 0.25s ease;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      width: min(1680px, calc(100vw - 48px));
+      margin: 0 auto;
+      padding: 24px 0 40px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 24px;
+      height: calc(100vh - 48px);
+      padding: 24px 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(8, 20, 29, 0.88), rgba(7, 17, 24, 0.72));
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      overflow: hidden;
+    }
+
+    .sidebar-main {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .brand {
+      display: grid;
+      gap: 14px;
+    }
+
+    .brand-mark {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(216, 181, 109, 0.26), rgba(83, 186, 164, 0.16)),
+        rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(216, 181, 109, 0.26);
+      display: grid;
+      place-items: center;
+      font-family: var(--mono);
+      font-size: 1.1rem;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.5;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+    }
+
+    .brand p,
+    .sidebar-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.83rem;
+      line-height: 1.7;
+    }
+
+    .nav {
+      display: grid;
+      gap: 8px;
+      margin: 24px 0;
+      flex: 1 1 auto;
+      min-height: 0;
+      padding-right: 6px;
+      overflow-y: auto;
+      align-content: start;
+    }
+
+    .nav::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .nav::-webkit-scrollbar-thumb {
+      border-radius: 999px;
+      background: rgba(216, 181, 109, 0.28);
+    }
+
+    .nav::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 999px;
+    }
+
+    .nav a {
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      color: rgba(237, 245, 244, 0.78);
+      font-size: 0.9rem;
+      line-height: 1.45;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+    }
+
+    .nav a:hover {
+      transform: translateX(4px);
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(216, 181, 109, 0.18);
+      color: var(--text);
+    }
+
+    .nav a.active {
+      transform: translateX(4px);
+      background: rgba(216, 181, 109, 0.08);
+      border-color: rgba(216, 181, 109, 0.3);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .nav .index {
+      display: inline-block;
+      min-width: 1.8em;
+      color: var(--gold);
+      font-family: var(--mono);
+      font-size: 0.82rem;
+    }
+
+    main {
+      display: grid;
+      gap: 24px;
+    }
+
+    .slide {
+      position: relative;
+      min-height: calc(100vh - 48px);
+      padding: clamp(28px, 4vw, 48px);
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(9, 21, 31, 0.85), rgba(7, 17, 24, 0.92)),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.03), transparent);
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      isolation: isolate;
+      scroll-margin-top: 24px;
+    }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: auto -8% -30% auto;
+      width: min(38vw, 520px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(83, 186, 164, 0.18), transparent 70%);
+      filter: blur(18px);
+      z-index: -1;
+    }
+
+    .slide::after {
+      content: "";
+      position: absolute;
+      inset: -20% auto auto -10%;
+      width: min(30vw, 400px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(216, 181, 109, 0.12), transparent 70%);
+      filter: blur(12px);
+      z-index: -1;
+    }
+
+    .slide-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 30px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      border: 1px solid rgba(216, 181, 109, 0.25);
+      border-radius: 999px;
+      background: rgba(216, 181, 109, 0.08);
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.74rem;
+      font-family: var(--mono);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .slide-no {
+      color: rgba(237, 245, 244, 0.45);
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+    }
+
+    .title {
+      margin: 12px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.15;
+      letter-spacing: 0.02em;
+      background: linear-gradient(135deg, var(--text) 60%, var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      max-width: 880px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.4vw, 1.14rem);
+      line-height: 1.95;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.9fr);
+      gap: 28px;
+      align-items: stretch;
+      margin-top: 34px;
+    }
+
+    .hero-copy {
+      display: grid;
+      align-content: space-between;
+      gap: 26px;
+    }
+
+    .hero-summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .chip-row,
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag,
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      color: rgba(237, 245, 244, 0.86);
+      font-size: 0.86rem;
+    }
+
+    .hero-panel,
+    .panel,
+    .metric-card,
+    .domain-card,
+    .insight-card,
+    .risk-card,
+    .op-card,
+    .step-card,
+    .timeline-card,
+    .chart-card,
+    .table-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+        var(--panel);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+    }
+
+    .hero-panel {
+      padding: 24px;
+      display: grid;
+      gap: 18px;
+      align-content: start;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 10% -20% auto auto;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(124, 200, 210, 0.22), transparent 70%);
+      filter: blur(22px);
+      pointer-events: none;
+    }
+
+    .big-number {
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.95;
+      font-family: var(--mono);
+      color: var(--gold);
+      letter-spacing: -0.04em;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .panel-label {
+      font-size: 0.82rem;
+      color: rgba(237, 245, 244, 0.66);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .metric-card {
+      padding: 18px;
+      display: grid;
+      gap: 10px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(216, 181, 109, 0.3);
+    }
+
+    .metric-card strong {
+      font-family: var(--mono);
+      font-size: clamp(1.4rem, 2vw, 2rem);
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.03em;
+    }
+
+    .metric-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .panel,
+    .chart-card,
+    .table-card {
+      padding: 22px;
+      transition: border-color 0.25s ease;
+    }
+
+    .panel:hover,
+    .chart-card:hover,
+    .table-card:hover {
+      border-color: var(--line-strong);
+    }
+
+    .panel h3,
+    .chart-card h3,
+    .table-card h3,
+    .domain-card h3,
+    .insight-card h3,
+    .risk-card h3,
+    .op-card h3,
+    .step-card h3,
+    .timeline-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.08rem;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+    }
+
+    .panel p,
+    .chart-card p,
+    .table-card p,
+    .domain-card p,
+    .insight-card p,
+    .risk-card p,
+    .op-card p,
+    .step-card p,
+    .timeline-card p,
+    li {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 0.96rem;
+    }
+
+    .panel ul,
+    .op-card ul,
+    .risk-card ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .switch-card {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .switch-side {
+      padding: 20px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .switch-side .small-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--gold);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-family: var(--mono);
+    }
+
+    .switch-side strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.24rem;
+      line-height: 1.4;
+    }
+
+    .insight-card,
+    .risk-card,
+    .op-card,
+    .step-card,
+    .timeline-card,
+    .domain-card {
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .insight-card:hover,
+    .risk-card:hover,
+    .op-card:hover,
+    .step-card:hover,
+    .timeline-card:hover,
+    .domain-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+    }
+
+    .risk-card {
+      border-left: 3px solid var(--rose);
+      background:
+        linear-gradient(135deg, rgba(201, 107, 107, 0.06), transparent 60%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+        var(--panel);
+    }
+
+    .risk-card h3 {
+      color: var(--rose);
+    }
+
+    .op-card {
+      border-left: 3px solid var(--jade);
+      background:
+        linear-gradient(135deg, rgba(83, 186, 164, 0.06), transparent 60%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+        var(--panel);
+    }
+
+    .op-card h3 {
+      color: var(--jade);
+    }
+
+    .insight-card {
+      border-left: 3px solid var(--cyan);
+    }
+
+    .insight-card h3 {
+      color: var(--cyan);
+    }
+
+    .domain-card::before,
+    .insight-card::before,
+    .risk-card::before,
+    .op-card::before,
+    .step-card::before,
+    .timeline-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -20px -20px auto;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.12), transparent 70%);
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .domain-card {
+      border-top: 2px solid var(--gold);
+    }
+
+    .domain-card .count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 54px;
+      height: 36px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(216, 181, 109, 0.14);
+      border: 1px solid rgba(216, 181, 109, 0.24);
+      color: var(--gold);
+      font-family: var(--mono);
+      font-size: 0.94rem;
+      margin-bottom: 14px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .step-card {
+      min-height: 220px;
+      border-top: 2px solid var(--cyan);
+    }
+
+    .step-card .step-index {
+      display: inline-flex;
+      margin-bottom: 16px;
+      color: var(--cyan);
+      font-family: var(--mono);
+      letter-spacing: 0.12em;
+      font-size: 0.82rem;
+    }
+
+    .bars {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .bar-item {
+      display: grid;
+      gap: 8px;
+    }
+
+    .bar-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 0.92rem;
+      color: rgba(237, 245, 244, 0.84);
+    }
+
+    .bar-track {
+      position: relative;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      position: absolute;
+      inset: 0 auto 0 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--jade), var(--gold));
+    }
+
+    .roadmap {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 18px;
+      margin-top: 18px;
+      align-items: start;
+    }
+
+    .roadmap-years {
+      display: grid;
+      gap: 12px;
+      color: rgba(237, 245, 244, 0.84);
+      font-family: var(--mono);
+      font-size: 0.9rem;
+    }
+
+    .roadmap-lines {
+      display: grid;
+      gap: 12px;
+    }
+
+    .roadmap-line {
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .table {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .table-row {
+      display: grid;
+      grid-template-columns: 1.3fr 0.8fr 1.5fr;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      align-items: start;
+    }
+
+    .table-row.header {
+      background: rgba(216, 181, 109, 0.08);
+      border-color: rgba(216, 181, 109, 0.15);
+      color: var(--gold);
+      font-size: 0.86rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: var(--mono);
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+    }
+
+    .timeline-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-card .year {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-family: var(--mono);
+    }
+
+    .retirement-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .retirement-card {
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      display: grid;
+      gap: 8px;
+    }
+
+    .retirement-card strong {
+      font-family: var(--mono);
+      font-size: 1.55rem;
+      letter-spacing: -0.03em;
+    }
+
+    .route-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+    }
+
+    .route-map {
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(83, 186, 164, 0.15), transparent 25%),
+        radial-gradient(circle at 72% 30%, rgba(216, 181, 109, 0.14), transparent 25%),
+        rgba(255, 255, 255, 0.03);
+      min-height: 340px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .map-node {
+      position: absolute;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: rgba(7, 17, 24, 0.82);
+      color: var(--text);
+      font-size: 0.9rem;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+    }
+
+    .map-node strong {
+      color: var(--gold);
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+    }
+
+    .route-line {
+      position: absolute;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(83, 186, 164, 0.05), rgba(83, 186, 164, 0.75), rgba(216, 181, 109, 0.65));
+      transform-origin: left center;
+      box-shadow: 0 0 18px rgba(83, 186, 164, 0.35);
+    }
+
+    .pillars {
+      display: grid;
+      gap: 14px;
+    }
+
+    .pillar {
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--gold);
+      background: rgba(255, 255, 255, 0.04);
+      transition: transform 0.25s ease;
+    }
+
+    .pillar:hover {
+      transform: translateX(4px);
+    }
+
+    .pillar strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .jobs-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+    }
+
+    .source-note {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: rgba(237, 245, 244, 0.58);
+      font-size: 0.86rem;
+      line-height: 1.75;
+    }
+
+    .footer-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      font: inherit;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(216, 181, 109, 0.35);
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .quote {
+      padding: 20px 22px;
+      border-left: 3px solid var(--gold);
+      background: linear-gradient(135deg, rgba(216, 181, 109, 0.08), rgba(216, 181, 109, 0.03));
+      border-radius: 0 18px 18px 0;
+      color: rgba(237, 245, 244, 0.92);
+      line-height: 1.9;
+      font-style: italic;
+      font-size: 0.98rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .floating {
+      animation: float 12s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-4px);
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .layout {
+        grid-template-columns: 1fr;
+        width: min(100%, calc(100vw - 28px));
+        padding-top: 14px;
+      }
+
+      .sidebar {
+        position: static;
+        height: auto;
+        overflow: visible;
+      }
+
+      .sidebar-main {
+        min-height: auto;
+      }
+
+      .nav {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        overflow: visible;
+        padding-right: 0;
+      }
+
+      .hero-grid,
+      .grid-2,
+      .timeline,
+      .route-grid,
+      .jobs-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .metric-grid,
+      .grid-3,
+      .grid-4,
+      .flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .table-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .layout {
+        width: min(100%, calc(100vw - 16px));
+      }
+
+      .slide {
+        min-height: auto;
+        padding: 24px 18px;
+        border-radius: 26px;
+      }
+
+      .slide-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-summary,
+      .metric-grid,
+      .grid-3,
+      .grid-4,
+      .flow,
+      .retirement-grid,
+      .switch-card {
+        grid-template-columns: 1fr;
+      }
+
+      .roadmap {
+        grid-template-columns: 1fr;
+      }
+
+      .route-map {
+        min-height: 420px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        color: #111111;
+      }
+
+      .sidebar,
+      .progress-bar,
+      .footer-actions {
+        display: none !important;
+      }
+
+      .layout {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .slide {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        min-height: auto;
+        margin: 0 0 16px;
+        background: #ffffff;
+        color: #111111;
+        border: 1px solid #dddddd;
+        box-shadow: none;
+      }
+
+      .subtitle,
+      .muted,
+      .panel p,
+      .chart-card p,
+      .table-card p,
+      .domain-card p,
+      .insight-card p,
+      .risk-card p,
+      .op-card p,
+      .step-card p,
+      .timeline-card p,
+      .source-note,
+      li {
+        color: #444444;
+      }
+
+      .title {
+        background: none;
+        -webkit-text-fill-color: #111111;
+        color: #111111;
+      }
+
+      .risk-card {
+        border-left-color: #c96b6b;
+      }
+
+      .op-card {
+        border-left-color: #53baa4;
+      }
+
+      .insight-card {
+        border-left-color: #7cc8d2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar"><span id="progressFill"></span></div>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-main">
+        <div class="brand">
+          <div class="brand-mark">2026</div>
+          <div>
+            <h1>2026年两会<br>精神深度解读</h1>
+            <p>聚焦高质量发展、风险化解、科技自立、民生托底与治理重心转移。</p>
+          </div>
+        </div>
+
+        <nav class="nav" id="sideNav">
+          <a href="#slide-1"><span class="index">01</span>封面</a>
+          <a href="#slide-2"><span class="index">02</span>战略总论</a>
+          <a href="#slide-3"><span class="index">03</span>宏观财政</a>
+          <a href="#slide-4"><span class="index">04</span>十五五项目</a>
+          <a href="#slide-5"><span class="index">05</span>反内卷</a>
+          <a href="#slide-6"><span class="index">06</span>地产与债务</a>
+          <a href="#slide-7"><span class="index">07</span>人口工程</a>
+          <a href="#slide-8"><span class="index">08</span>外部化与权力</a>
+          <a href="#slide-9"><span class="index">09</span>就业启示</a>
+          <a href="#slide-10"><span class="index">10</span>结论</a>
+        </nav>
+      </div>
+
+      <p class="sidebar-note">经济、产业、人口、外部环境、就业——五维透视两会关键信号。</p>
+    </aside>
+
+    <main>
+      <section class="slide reveal in-view" id="slide-1" data-nav="0">
+        <div class="slide-head">
+          <div>
+            <span class="eyebrow">政策解读</span>
+            <h2 class="title">2026年两会深度解读</h2>
+            <p class="subtitle">战略转向、经济重组、治理变轨——从宏观模式切换到产业整合，从人口改革到就业启示，提炼两会核心信号。</p>
+          </div>
+          <div class="slide-no">SLIDE / 01</div>
+        </div>
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="tag-row">
+              <span class="tag">高质量发展</span>
+              <span class="tag">国家韧性</span>
+              <span class="tag">技术自立</span>
+              <span class="tag">地缘经济外部化</span>
+              <span class="tag">政治再集中</span>
+            </div>
+
+            <div class="quote">
+              两会的关键信号不是”继续冲增长”，而是承认旧模式失效，以更强的国家意志将资源重配至科技、安全、金融缓冲与社会稳定。
+            </div>
+
+            <div class="hero-summary">
+              <div class="metric-card">
+                <strong>4.5% - 5%</strong>
+                <span>2026年GDP目标区间，1991年以来最低，增速放缓被制度化接纳。</span>
+              </div>
+              <div class="metric-card">
+                <strong>109 项</strong>
+                <span>“十五五”重大项目，覆盖新质生产力、民生、基础设施、绿色转型、城乡融合与安全保障。</span>
+              </div>
+              <div class="metric-card">
+                <strong>10 万亿</strong>
+                <span>地方隐性债务置换计划，核心意图是缓冲风险，而不是用新增信用直接刺激消费。</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-panel floating">
+            <div class="panel-label">核心主线</div>
+            <div class="big-number">2026</div>
+            <p>从”债务驱动＋地产＋土地财政”转向”科技驱动＋风险缓冲＋政治集权”的结构性转场。</p>
+            <div class="bars">
+              <div class="bar-item">
+                <div class="bar-label"><span>增长速度</span><span>下调容忍</span></div>
+                <div class="bar-track"><span class="bar-fill" style="width:58%"></span></div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label"><span>科技优先级</span><span>显著提高</span></div>
+                <div class="bar-track"><span class="bar-fill" style="width:91%"></span></div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label"><span>系统性风控</span><span>政策核心</span></div>
+                <div class="bar-track"><span class="bar-fill" style="width:88%"></span></div>
+              </div>
+            </div>
+            <div class="chip-row">
+              <span class="chip">宏观经济</span>
+              <span class="chip">产业政策</span>
+              <span class="chip">人口改革</span>
+              <span class="chip">就业判断</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide reveal" id="slide-2" data-nav="1">
+        <div class="slide-head">
+          <div>
+            <span class="eyebrow">战略判断</span>
+            <h2 class=”title”>国家优先序已然切换</h2>
+            <p class=”subtitle”>两会最核心的变化：高速增长不再是唯一政治目标，韧性、安全、技术主权、财政缓冲、社会稳定被提至同等甚至更高位置。</p>
+          </div>
+          <div class="slide-no">SLIDE / 02</div>
+        </div>
+
+        <div class="grid-2">
+          <div class="panel">
+            <h3>旧范式 → 新范式</h3>
+            <div class="switch-card">
+              <div class="switch-side">
+                <span class="small-label">Old Model</span>
+                <strong>债务扩张 + 房地产繁荣 + 土地财政</strong>
+                <p>地方以GDP冲刺为导向，靠基建、卖地、影子融资堆规模，积累地产泡沫、地方债与低效投资。</p>
+              </div>
+              <div class="switch-side">
+                <span class="small-label">New Model</span>
+                <strong>高质量发展 + 国家韧性 + 高度集权</strong>
+                <p>资源转投先进制造、前沿科技、供应链安全与人口调整，容忍更慢但更可控的增长。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="insight-card">
+              <h3>第一重信号</h3>
+              <p>宏观目标趋于柔性，决策层已接受经济难回旧时代高增速平台。</p>
+            </div>
+            <div class="insight-card">
+              <h3>第二重信号</h3>
+              <p>财政偏向缓冲风险而非直接刺激居民需求，”救系统”优先于”拉消费”。</p>
+            </div>
+            <div class="insight-card">
+              <h3>第三重信号</h3>
+              <p>产业政策从鼓励扩产转向强制整合，国家主动修复利润率与定价权。</p>
+            </div>
+            <div class="insight-card">
+              <h3>第四重信号</h3>
+              <p>人口与军队双线”带痛改革”，印证政权稳定优先于短期舒适。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-3" style="margin-top:20px;">
+          <div class="risk-card">
+            <h3>增长悖论</h3>
+            <p>新质生产力持续扩大供给，但内需修复不足，过剩产能压力仍将传导至出口与全球贸易摩擦。</p>
+          </div>
+          <div class="risk-card">
+            <h3>治理悖论</h3>
+            <p>政治忠诚与集中控制越强，地方、市场与军队的自主判断和执行弹性越受制约。</p>
+          </div>
+          <div class="risk-card">
+            <h3>就业悖论</h3>
+            <p>产业整合利于长期效率，短期却压缩岗位；延迟退休挤压青年入口，代际焦虑加剧。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide reveal" id="slide-3" data-nav="2">
+        <div class="slide-head">
+          <div>
+            <span class="eyebrow">宏观财政</span>
+            <h2 class=”title”>财政转向：缓冲优先，刺激靠后</h2>
+            <p class=”subtitle”>2026年核心财政逻辑：先化解系统性风险，再为国家战略提供长期资金，而非大规模刺激居民消费。</p>
+          </div>
+          <div class="slide-no">SLIDE / 03</div>
+        </div>
+
+        <div class="metric-grid">
+          <div class="metric-card">
+            <strong>4.0%</strong>
+            <span>财政赤字率目标，约合 5.89 万亿元人民币。</span>
+          </div>
+          <div class="metric-card">
+            <strong>1.3 万亿</strong>
+            <span>超长期特别国债，用于重大国家战略与关键基础设施。</span>
+          </div>
+          <div class="metric-card">
+            <strong>4.4 万亿</strong>
+            <span>地方政府专项债，用来维持地方基础设施与项目延续。</span>
+          </div>
+          <div class="metric-card">
+            <strong>2500 亿</strong>
+            <span>以旧换新补贴，力度存在但仍偏温和。</span>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top:20px;">
+          <div class="chart-card">
+            <h3>财政政策重心</h3>
+            <p>政策组合呈现”供给侧＋风险隔离”特征。投资继续，但围绕长期战略能力建设，而非以现金或大规模补贴点燃消费。</p>
+            <div class="bars">
+              <div class="bar-item">
+                <div class="bar-label"><span>系统性风控</span><span>最高优先</span></div>
+                <div class="bar-track"><span class="bar-fill" style="width:92%"></span></div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label"><span>基础设施与科技升级</span><span>高投入</span></div>
+                <div class="bar-track"><span class="bar-fill" style="width:84%"></span></div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label"><span>居民端直接刺激</span><span>相对有限</span></div>
+                <div class="bar-track"><span class="bar-fill" style="width:38%"></span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <h3>10 万亿元地方债置换机制</h3>
+            <p>非免本金救助，而是将高息、短期、表外隐性债务置换为低息、长期、透明的地方债券，为地方财政装上”减压阀”。</p>
+            <div class="roadmap">
+              <div class="roadmap-years">
+                <div>2024 - 2026</div>
+                <div>2024 - 2028</div>
+                <div>到 2028</div>
+              </div>
+              <div class="roadmap-lines">
+                <div class="roadmap-line">新增 6 万亿元专项债上限，三年分配，用于置换隐性债务。</div>
+                <div class="roadmap-line">每年从专项债发行额度中安排 8000 亿元，五年累计 4 万亿元。</div>
+                <div class="roadmap-line">按当前置换节奏测算，待紧急处置隐性债务有望从 14.3 万亿元降至 2.3 万亿元。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:20px;">
+          <h3>结论</h3>
+          <p>宏观层面最值得关注的不是数字本身，而是姿态之变：接受更慢增长，以财政托底风险、维护运转、服务战略，而非重启旧式总需求狂飙。</p>
+        </div>
+      </section>
+
+      <section class="slide reveal" id="slide-4" data-nav="3">
+        <div class="slide-head">
+          <div>
+            <span class="eyebrow">十五五布局</span>
+            <h2 class=”title”>109项重大工程重塑资本版图</h2>
+            <p class=”subtitle”>”十五五”不止是发展规划，更是国家韧性架构。资本、补贴、监管与行政资源围绕六大领域重配，硬科技与战略安全居于核心。</p>
+          </div>
+          <div class="slide-no">SLIDE / 04</div>
+        </div>
+
+        <div class="grid-3">
+          <div class="domain-card">
+            <div class="count">28 项</div>
+            <h3>新质生产力</h3>
+            <p>AI、半导体、量子、商业航天、生物制造、6G——补齐”卡脖子”环节，锻造技术主权。</p>
+          </div>
+          <div class="domain-card">
+            <div class="count">25 项</div>
+            <h3>民生与福祉</h3>
+            <p>健康中国、教育扩容、养老托幼升级，以社会基础设施对冲人口危机。</p>
+          </div>
+          <div class="domain-card">
+            <div class="count">23 项</div>
+            <h3>现代基础设施</h3>
+            <p>从传统土建转向数字网络、数据中心、物流体系和新能源传输。</p>
+          </div>
+          <div class="domain-card">
+            <div class="count">18 项</div>
+            <h3>绿色低碳转型</h3>
+            <p>围绕碳达峰、生态修复、循环经济与单位 GDP 碳排放下降目标展开。</p>
+          </div>
+          <div class="domain-card">
+            <div class="count">9 项</div>
+            <h3>城乡融合</h3>
+            <p>粮食安全、农业现代化与区域均衡，弥合沿海与内陆、城市与乡村落差。</p>
+          </div>
+          <div class="domain-card">
+            <div class="count">6 项</div>
+            <h3>安全保障</h3>
+            <p>粮食、矿产和能源储备强化，服务长期地缘对抗下的供应安全。</p>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top:20px;">
+          <div class="table-card">
+            <h3>核心指标一览</h3>
+            <div class="table">
+              <div class="table-row header">
+                <div>指标</div>
+                <div>目标</div>
+                <div>含义</div>
+              </div>
+              <div class="table-row">
+                <div>研发投入年增速</div>
+                <div>&gt; 7%</div>
+                <div>刻意跑赢GDP增速，加速资源向科技研发倾斜。</div>
+              </div>
+              <div class="table-row">
+                <div>核心数字经济占比</div>
+                <div>2030 年 12.5%</div>
+                <div>从约10%提升至更高权重，强化软件、数据与AI底座。</div>
+              </div>
+              <div class="table-row">
+                <div>重点跃迁方向</div>
+                <div>AI / 量子 / 低空经济</div>
+                <div>以跨代技术弯道超车，重塑全球供应链卡位。</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>需要警惕的隐含风险</h3>
+            <ul>
+              <li>国家力量可迅速放大供给，但内需恢复未必同步跟上。</li>
+              <li>资源越集中于先进制造，越易催生新一轮过剩并依赖出口消化。</li>
+              <li>从平台经济转向硬科技，人才需求结构将重塑，产业门槛同步抬升。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide reveal" id="slide-5" data-nav="4">
+        <div class="slide-head">
+          <div>
+            <span class="eyebrow">产业整合</span>
+            <h2 class=”title”>”反内卷”：从口号到国家主导的行业出清</h2>
+            <p class=”subtitle”>2026年最具冲击力的产业转向。核心不是反竞争，而是终结低利润、低效率、靠补贴与价格战堆砌的恶性扩产。</p>
+          </div>
+          <div class="slide-no">SLIDE / 05</div>
+        </div>
+
+        <div class="flow">
+          <div class="step-card">
+            <div class="step-index">STEP 01</div>
+            <h3>地方重复投资</h3>
+            <p>地方围绕新能源、汽车、光伏等赛道大举补贴、低价供地、担保融资，形成全国性过度扩产。</p>
+          </div>
+          <div class="step-card">
+            <div class="step-index">STEP 02</div>
+            <h3>价格战吞噬利润</h3>
+                <p>以新能源汽车为例，2026年初电动车平均利润率跌至3.9%，整车价格同比下降近6%。</p>
+          </div>
+          <div class="step-card">
+            <div class="step-index">STEP 03</div>
+            <h3>监管进入整合期</h3>
+            <p>通过减产配额、供应链付款约束、反垄断和更高标准，迫使低效企业退出市场。</p>
+          </div>
+          <div class="step-card">
+            <div class="step-index">STEP 04</div>
+            <h3>龙头集中度上升</h3>
+            <p>份额向比亚迪、宁德时代等头部集中，国家意图恢复盈利能力与全球定价权。</p>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top:20px;">
+          <div class="panel">
+            <h3>执行工具</h3>
+            <ul>
+              <li>钢铁、煤炭、光伏玻璃、多晶硅等行业实施减产与淘汰协调。</li>
+              <li>电动车行业压缩供应商账期，降低脆弱营运资金链风险。</li>
+              <li>抬高安全、环保与技术准入门槛，倒逼劣质产能出清。</li>
+              <li>必要时以产业及反垄断政策调控大宗商品价格，护航龙头利润。</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>政策收益与代价</h3>
+            <div class="grid-2">
+              <div class="op-card">
+                <h3>收益</h3>
+                <p>提升头部企业利润、修复行业定价权、降低地方保护主义、打造全国统一市场。</p>
+              </div>
+              <div class="risk-card">
+                <h3>代价</h3>
+                <p>中小企业关闭、地方就业承压、蓝领岗位受冲击，短期内会与“新增城镇就业目标”形成张力。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide reveal" id="slide-6" data-nav="5">
+        <div class="slide-head">
+          <div>
+            <span class="eyebrow">地产与债务</span>
+            <h2 class=”title”>地产：告别复苏幻想，转向有序出清</h2>
+            <p class=”subtitle”>政策取向已明：不再试图恢复高杠杆繁荣，转向”控制爆破”，核心是防止系统性银行危机与无序违约扩散。</p>
+          </div>
+          <div class="slide-no">SLIDE / 06</div>
+        </div>
+
+        <div class="grid-2">
+          <div class="panel">
+            <h3>政策措辞的变化</h3>
+            <p>从”持续推动止跌回稳”转向”集中力量稳定房地产市场”，目标已从恢复高峰交易切换到管理长期衰退、隔离金融传染风险。</p>
+
+            <div class="bars">
+              <div class="bar-item">
+                <div class="bar-label"><span>恢复旧周期</span><span>低</span></div>
+                <div class="bar-track"><span class="bar-fill" style="width:22%"></span></div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label"><span>控制系统风险</span><span>高</span></div>
+                <div class="bar-track"><span class="bar-fill" style="width:90%"></span></div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label"><span>转向高质量住房</span><span>中高</span></div>
+                <div class="bar-track"><span class="bar-fill" style="width:76%"></span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>两项主要工具</h3>
+            <ul>
+              <li>利用央行贷款和地方国企收储，将未售商业地产转为保障房、学校、医院等用途。</li>
+              <li>低线城市收紧土地供应，一线和人口流入城市转向“低数量、高质量”住宅建设。</li>
+            </ul>
+            <div class="quote" style="margin-top:18px;">
+              关键词不是”全面托举”，而是”有序处置”——支持会有，但旧式无限信用扩张不会重来。
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top:20px;">
+          <div class="risk-card">
+            <h3>仍需面对的现实</h3>
+            <p>地产至少还需经历约两年痛苦调整，建材、地方融资平台及相关链条仍处高风险区。</p>
+          </div>
+          <div class="op-card">
+            <h3>新机会窗口</h3>
+            <p>高品质住宅、绿色节能、智慧社区、保障房改造与公共设施更新，是地产后周期中少数结构性增量。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide reveal" id="slide-7" data-nav="6">
+        <div class="slide-head">
+          <div>
+            <span class="eyebrow">人口改革</span>
+            <h2 class="title">人口改革：必行之路，必受之痛</h2>
+            <p class="subtitle">延迟退休与托幼补贴双线并行：前者解养老金之困，后者缓生育下滑之急，但短期内均难根本扭转人口趋势。</p>
+          </div>
+          <div class="slide-no">SLIDE / 07</div>
+        </div>
+
+        <div class="timeline">
+          <div class="panel">
+            <h3>退休年龄调整</h3>
+            <p>法定退休年龄于2025年1月1日启动渐进式改革，计划2040年前完成15年过渡。有助于缓解养老金系统压力，但将直接加剧青年岗位竞争。</p>
+            <div class="retirement-grid">
+              <div class="retirement-card">
+                <span class="muted">男性</span>
+                <strong>60 → 63</strong>
+                <span class="muted">分 15 年逐步实施</span>
+              </div>
+              <div class="retirement-card">
+                <span class="muted">女性白领/干部</span>
+                <strong>55 → 58</strong>
+                <span class="muted">同步推高缴费责任</span>
+              </div>
+              <div class="retirement-card">
+                <span class="muted">女性蓝领</span>
+                <strong>50 → 55</strong>
+                <span class="muted">劳动力供给压力缓释</span>
+              </div>
+            </div>
+            <div class="quote" style="margin-top:18px;">
+              2030年起，最低养老金缴费年限从15年逐步提至20年——财政上必需，社会感受上艰难。
+            </div>
+          </div>
+
+          <div class="timeline-list">
+            <div class="timeline-card">
+              <span class="year">Births & Aging</span>
+              <h3>人口压力的底色</h3>
+              <p>2025年出生人口降至800万以下，60岁以上人口逼近3亿，占比超21%。</p>
+            </div>
+            <div class="timeline-card">
+              <span class="year">Childcare Subsidy</span>
+              <h3>生育友好型社会</h3>
+              <p>全国托幼补贴规模逾1000亿元，3岁以下儿童每月补贴300元，覆盖超3300万名儿童。</p>
+            </div>
+            <div class="timeline-card">
+              <span class="year">Structural Limitation</span>
+              <h3>效果边界</h3>
+              <p>面对大城市房价、医疗与教育成本，月补300元更多是缓冲，不足以逆转城市家庭生育意愿。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide reveal" id="slide-8" data-nav="7">
+        <div class="slide-head">
+          <div>
+            <span class="eyebrow">外部布局与权力</span>
+            <h2 class=”title”>外拓生态、内收权力：双线并进</h2>
+            <p class=”subtitle”>两条线索并行：供应链与金融架构向东南亚外溢以绕开围堵，军队系统持续清洗与忠诚重组以压实内控。</p>
+          </div>
+          <div class="slide-no">SLIDE / 08</div>
+        </div>
+
+        <div class="route-grid">
+          <div class="route-map">
+            <div class="map-node" style="left:10%;top:14%;">
+              <strong>CHINA</strong>
+              大陆制造与资本
+            </div>
+            <div class="map-node" style="left:58%;top:18%;">
+              <strong>VIETNAM</strong>
+              制造转移
+            </div>
+            <div class="map-node" style="left:68%;top:42%;">
+              <strong>THAILAND</strong>
+              汽车与组装
+            </div>
+            <div class="map-node" style="left:50%;top:64%;">
+              <strong>MALAYSIA</strong>
+              电子与中转
+            </div>
+            <div class="map-node" style="left:24%;top:70%;">
+              <strong>INDONESIA</strong>
+              资源与电池链
+            </div>
+            <div class="route-line" style="left:22%;top:25%;width:220px;transform:rotate(-7deg);"></div>
+            <div class="route-line" style="left:21%;top:30%;width:270px;transform:rotate(16deg);"></div>
+            <div class="route-line" style="left:21%;top:34%;width:240px;transform:rotate(32deg);"></div>
+            <div class="route-line" style="left:20%;top:38%;width:190px;transform:rotate(46deg);"></div>
+          </div>
+
+          <div class="pillars">
+            <div class="pillar">
+              <strong>地缘经济外部化</strong>
+              <p>电动车、锂电、光伏”新三样”向越南、泰国、马来西亚、印尼转移部分环节，规避关税与出口限制。</p>
+            </div>
+            <div class="pillar">
+              <strong>东盟的双重挤压</strong>
+              <p>东盟既承接中国产能与资本，又受西方规则约束，本土中游制造面临两端挤压。</p>
+            </div>
+            <div class="pillar">
+              <strong>军队清洗的含义</strong>
+              <p>政治忠诚居绝对优先，新晋高层军官更多依托个人效忠而非独立权力基础。</p>
+            </div>
+            <div class="pillar">
+              <strong>战略张力</strong>
+              <p>政治控制上升利于政权安全，但可能削弱军队与官僚系统的自主判断及执行效率。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide reveal" id="slide-9" data-nav="8">
+        <div class="slide-head">
+          <div>
+            <span class="eyebrow">就业启示</span>
+            <h2 class="title">青年就业：顺势而为的择业逻辑</h2>
+            <p class="subtitle">信号直白：传统地产、旧金融、低端扩张型制造不再是默认路径，机会在国家资本与供应链重构的方向上。</p>
+          </div>
+          <div class="slide-no">SLIDE / 09</div>
+        </div>
+
+        <div class="jobs-layout">
+          <div class="grid-2">
+            <div class="op-card">
+              <h3>锁定新质生产力</h3>
+              <ul>
+                <li>重点关注AI、半导体、生物制造、新能源零部件、商业航天等赛道。</li>
+                <li>强化创新管理、研发协同、供应链安全与运营优化能力。</li>
+              </ul>
+            </div>
+            <div class="op-card">
+              <h3>优选头部与平台型机构</h3>
+              <ul>
+                <li>优先进入具有国家战略地位的龙头企业，而非可能被整合淘汰的中小厂商。</li>
+                <li>工业并购、数字化转型、产业咨询同样受益。</li>
+              </ul>
+            </div>
+            <div class="op-card">
+              <h3>补齐国际化能力</h3>
+              <ul>
+                <li>围绕东南亚布局，储备跨文化沟通、国际贸易规则与多国供应链管理能力。</li>
+                <li>出海企业中，区域运营与本地化管理能力日益稀缺、日益值钱。</li>
+              </ul>
+            </div>
+            <div class="op-card">
+              <h3>关注公共服务升级</h3>
+              <ul>
+                <li>养老、托幼、健康中国相关项目具有政策支撑与长期需求。</li>
+                <li>偏好稳健路线者，此类方向比旧地产链条更具确定性。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="risk-card">
+              <h3>需要回避的高风险地带</h3>
+              <ul>
+                <li>高杠杆房地产开发</li>
+                <li>建筑材料与地方融资平台</li>
+                <li>处于“反内卷”淘汰边缘的低效制造商</li>
+              </ul>
+            </div>
+            <div class="risk-card">
+              <h3>就业环境的底层约束</h3>
+              <ul>
+                <li>青年失业压力仍在</li>
+                <li>延迟退休会进一步压缩入口岗位</li>
+                <li>行业景气分化将大于过去普遍扩张时期</li>
+              </ul>
+            </div>
+            <div class="panel" style="grid-column:1 / -1;">
+              <h3>一句话概括</h3>
+              <p>择业不再围绕”哪个行业曾经最火”，而要看”未来五年国家把钱、项目、政策往哪推”。深科技、先进制造、供应链国际化与人口相关公共服务，是当下最值得押注的方向。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide reveal" id="slide-10" data-nav="9">
+        <div class="slide-head">
+          <div>
+            <span class="eyebrow">结语</span>
+            <h2 class="title">结语：更慢、更硬、更集中的中国</h2>
+            <p class="subtitle">2026年两会不是年度政策例行发布，而是一次结构性宣示：旧引擎退场，新秩序围绕科技、安全、财政缓冲与政治忠诚重建。</p>
+          </div>
+          <div class="slide-no">SLIDE / 10</div>
+        </div>
+
+        <div class="grid-3">
+          <div class="insight-card">
+            <h3>经济层面</h3>
+            <p>低增长目标制度化，高质量发展取代速度崇拜，地产与地方债进入长周期消化。</p>
+          </div>
+          <div class="insight-card">
+            <h3>产业层面</h3>
+            <p>国家资本聚焦硬科技，反内卷推动行业整合，龙头地位进一步强化。</p>
+          </div>
+          <div class="insight-card">
+            <h3>治理层面</h3>
+            <p>从人口改革到军队整肃，均贯穿”忍短痛、换长控”的治理逻辑。</p>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:20px;">
+          <h3>汇报结语</h3>
+          <p>把握两会精神，关键不在逐条记忆政策条文，而在看清治理重心的排序之变：稳预期、防风险、强科技、保民生，于更复杂的外部环境中锻造整体韧性。</p>
+        </div>
+
+        <div class="footer-actions">
+          <button class="button" type="button" id="printBtn">打印 / 导出 PDF</button>
+          <a class="button" href="#slide-1">回到封面</a>
+        </div>
+
+        <div class="source-note">
+          本解读聚焦政策主线及现实影响：既看稳中求进的总基调，也看结构调整、风险化解与长期竞争力重塑的深层逻辑。
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const slides = [...document.querySelectorAll('.slide')];
+    const navLinks = [...document.querySelectorAll('#sideNav a')];
+    const progressFill = document.getElementById('progressFill');
+    const printBtn = document.getElementById('printBtn');
+    const getFragmentId = (value = '') => {
+      const fragment = value.startsWith('#') ? value.slice(1) : value;
+      try {
+        return decodeURIComponent(fragment);
+      } catch (error) {
+        return fragment;
+      }
+    };
+    const navEntries = navLinks
+      .map((link) => {
+        const targetId = getFragmentId(link.getAttribute('href') || '');
+        const slide = document.getElementById(targetId);
+        return slide ? { link, slide } : null;
+      })
+      .filter(Boolean);
+    const orderedSlides = navEntries.map((entry) => entry.slide);
+    let activeIndex = 0;
+    let isTicking = false;
+
+    const setActive = (index) => {
+      if (!navEntries.length) {
+        return;
+      }
+
+      activeIndex = Math.max(0, Math.min(index, navEntries.length - 1));
+      navEntries.forEach(({ link }, i) => {
+        const isActive = i === activeIndex;
+        link.classList.toggle('active', isActive);
+        if (isActive) {
+          link.setAttribute('aria-current', 'true');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+      const ratio = ((activeIndex + 1) / navEntries.length) * 100;
+      if (progressFill) {
+        progressFill.style.width = ratio + '%';
+      }
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.18,
+      rootMargin: '0px 0px -12% 0px'
+    });
+
+    const updateActiveFromScroll = () => {
+      if (!orderedSlides.length) {
+        return;
+      }
+
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
+
+      if (scrollTop <= 8) {
+        setActive(0);
+        return;
+      }
+
+      if (maxScrollTop - scrollTop <= 8) {
+        setActive(orderedSlides.length - 1);
+        return;
+      }
+
+      const focusLine = Math.max(120, Math.min(window.innerHeight * 0.3, 320));
+      let nextIndex = 0;
+      let bestDistance = Number.POSITIVE_INFINITY;
+
+      orderedSlides.forEach((slide, index) => {
+        const rect = slide.getBoundingClientRect();
+        const containsFocusLine = rect.top <= focusLine && rect.bottom >= focusLine;
+        const distance = containsFocusLine
+          ? 0
+          : Math.min(Math.abs(rect.top - focusLine), Math.abs(rect.bottom - focusLine));
+
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          nextIndex = index;
+        }
+      });
+
+      setActive(nextIndex);
+    };
+
+    const requestScrollSync = () => {
+      if (isTicking) {
+        return;
+      }
+
+      isTicking = true;
+      window.requestAnimationFrame(() => {
+        updateActiveFromScroll();
+        isTicking = false;
+      });
+    };
+
+    if (slides[0]) {
+      slides[0].classList.add('in-view');
+    }
+
+    slides.forEach((slide) => {
+      if (!slide.classList.contains('in-view')) {
+        revealObserver.observe(slide);
+      }
+    });
+
+    navEntries.forEach(({ link }, index) => {
+      link.addEventListener('click', () => setActive(index));
+    });
+
+    window.addEventListener('scroll', requestScrollSync, { passive: true });
+    window.addEventListener('resize', requestScrollSync);
+    window.addEventListener('hashchange', () => {
+      const hashIndex = navEntries.findIndex(({ slide }) => slide.id === getFragmentId(window.location.hash));
+      if (hashIndex >= 0) {
+        setActive(hashIndex);
+      }
+      requestScrollSync();
+    });
+
+    const initialHashIndex = navEntries.findIndex(({ slide }) => slide.id === getFragmentId(window.location.hash));
+    setActive(initialHashIndex >= 0 ? initialHashIndex : 0);
+    requestScrollSync();
+
+    document.addEventListener('keydown', (event) => {
+      if (!orderedSlides.length) {
+        return;
+      }
+
+      if (event.key === 'ArrowDown' || event.key === 'PageDown') {
+        const next = Math.min(activeIndex + 1, orderedSlides.length - 1);
+        if (next !== activeIndex) {
+          event.preventDefault();
+          setActive(next);
+          orderedSlides[next].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+
+      if (event.key === 'ArrowUp' || event.key === 'PageUp') {
+        const prev = Math.max(activeIndex - 1, 0);
+        if (prev !== activeIndex) {
+          event.preventDefault();
+          setActive(prev);
+          orderedSlides[prev].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+
+    if (printBtn) {
+      printBtn.addEventListener('click', () => window.print());
+    }
+  </script>
+</body>
+</html>
